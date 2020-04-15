@@ -1,3 +1,49 @@
+
+
+
+
+.flexb(@direction, @justify, @align:center){
+  display:flex;
+  flex-direction:@direction;
+  justify-content:@justify;
+  align-items:@align;
+}
+header{
+  border-bottom: 2px dashed @navigation-border;
+  width:100%;
+  height:8vh;
+  padding: 4% 30%;
+  @media @phone{
+    height: 15vh;
+    width: 630px;
+    padding-left: 10px;
+  }
+  nav{
+    .flexb(row, space-between, center);
+   
+    
+    @media @phone{
+      .flexb(column, center, center);
+    }// this closes the media query for the nav
+    .links{
+      width:40%;
+      .flexb(row, space-evenly);
+      @media @phone{
+        width: 100%
+      }
+      
+      a{
+        text-decoration: none;
+        color:@main-color;
+        font-size:2rem;
+
+      }// this closes the a links
+    }// this closes links
+  }// this closes the nav
+
+}
+
+
 .home {
 
   .content-section {
@@ -5,17 +51,27 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
+    @media @phone{
+    flex-direction: column;
+   //flex-wrap: wrap-reverse;
+    }
    
     
     .text-content {
       width: 48%;
       padding-right: 1%;
+      @media @phone{
+        width: 100%;
+        padding-right: 0%
+      }
     }
 
     .img-content {
       width: 48%;
       padding-left: 1%;
+      @media @phone{
+        width: 100%
+      }
 
       img {
         border-radius: 10px;
@@ -30,32 +86,59 @@
     .text-content {
       padding-left: 1%;
       padding-right: 0;
+      @media @phone{
+        order:-1;
+      }
+     
     }
 
     .img-content {
       padding-right: 1%;
       padding-left: 0;
+      @media @phone{
+      order: 1;
     }
   }
 
-  .content-destination {
-    width: 75%;
-    margin: 0 auto 30px;
+ 
+  }// home
+//}
 
-    img {
-      border-radius: 10px;
-    }
+.content-destination {
+  width: 75%;
+  margin: 0 auto 30px;
+  @media @phone{
+    width: 100%;
+    padding-right: 0%
+  }
+}
+  img {
+    border-radius: 10px;
+  }
+}
+
+.content-pick {
+  padding-top: 30px;
+  border-top: 5px dashed @navigation-border;
+  display: flex;
+  justify-content: space-between;
+  @media @phone{
+    flex-direction: column;;
+    width: 100%;
+    padding-right: 0%
+  }
+  
+    
   }
 
-  .content-pick {
-    padding-top: 30px;
-    border-top: 2px dashed @navigation-border;
-    display: flex;
-    justify-content: space-between;
 
-    .destination {
-      width: 30%;
-      margin-bottom: 30px;
+  .destination {
+    width: 30%;
+    margin-bottom: 30px;
+    @media @phone{
+      width: 100%;
+      padding-right: 0%
     }
-  }
-}// home
+    }
+  
+  
